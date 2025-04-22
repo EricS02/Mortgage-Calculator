@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./index.js"></script>
+    <title>Frontend Mentor | Mortgage repayment calculator</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="left-section">
+        <div class="section-header">
+          <h3 class="section-title">Mortgage Calculator</h3>
+          <a href="#" class="clear-all">Clear All</a>
+        </div>
+
+        <div class="form-group">
+          <label for="mortgageAmount">
+            Mortgage Amount <span class="sr-only">in Pounds</span>
+          </label>
+          <div class="currency-input-group">
+            <span
+              aria-hidden="true"
+              id="poundsSignError"
+              class="currency-symbol"
+              >&pound;</span
+            >
+            <input
+              type="number"
+              id="mortgageAmount"
+              name="mortgageAmount"
+              required
+              class="mortgage-input"
+            />
+          </div>
+          <span class="error-message hidden" id="mortgageAmount-error">Please enter a mortgage amount</span>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group-1">
+            <label for="mortgage-term" class="form-label">Mortgage Term</label>
+            <div class="form-group-container">
+              <input
+                type="number"
+                id="mortgageTerm"
+                class="mortgage-term-input"
+                required
+              />
+              <span
+                class="form-group-1-symbol"
+                aria-hidden="true"
+                id="yearsSignError"
+                >years</span
+              >
+            </div>
+            <span class="error-message hidden" id="mortgage-term-error">Please enter a mortgage term</span>
+          </div>
+          <div class="form-group-1">
+            <label for="interest-rate" class="form-label">Interest Rate</label>
+            <div class="form-group-container">
+              <input
+                type="number"
+                id="interestRate"
+                class="interest-rate-input"
+                required
+              />
+              <span
+                class="form-group-1-symbol"
+                aria-hidden="true"
+                id="poundsSignError"
+                >%</span
+              >
+            </div>
+            <span class="error-message hidden" id="interest-rate-error">Please enter an interest rate</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <p class="form-label">Mortgage Type</p>
+          <div class="mortgage-type-options">
+            <label class="option">
+              <input
+                type="checkbox"
+                name="mortgage-type-repayment"
+                value="repayment"
+                id="repayment-option"
+                checked
+              />
+              <span>Repayment</span>
+            </label>
+            <label class="option">
+              <input
+                type="checkbox"
+                name="mortgage-type-interest"
+                value="interest-only"
+                id="interest-only-option"
+              />
+              <span>Interest Only</span>
+            </label>
+          </div>
+        </div>
+
+        <button class="calculate-btn" id="calculate-btn">
+          <img
+            src="./assets/images/icon-calculator.svg"
+            class="calc-icon"
+          />Calculate Repayments
+        </button>
+      </div>
+      <div class="right-section">
+        <div class="empty-results-container">
+          <div class="first-results" id="first-results">
+            <div class="results-image">
+              <img
+                src="./assets/images/illustration-empty.svg"
+                class="calc-image"
+              />
+            </div>
+            
+            <h3 class="results-title">Results shown here</h3>
+  
+            <p class="results-description">
+              Complete the form and click "calculate repayments" to see what your
+              monthly repayments would be.
+            </p>
+  
+          </div>
+         
+          <div class="results hidden" id="second-results">
+            <h3 class="results-title">Your results</h3>
+
+            <p class="words">
+              Your results are shown below based on the information you provided.
+              To adjust the results, edit the form and click "calculate
+              repayments" again.
+            </p> 
+            <div class="results-box"> 
+              <div class="mothly-repay">
+                <p>Your monthly repayments</p>
+                <h1 id="monthly-repay-number"></h1>
+              </div>
+              <div class="term-repay">
+                <p>Total you'll repay over the term</p> 
+                <h1 id="term-repay-title"></h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Completed results end -->
+  </body>
+</html>
