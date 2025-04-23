@@ -24,6 +24,10 @@ document.addEventListener("DOMContentLoaded", function() {
   
   // Select the button
   const button = document.getElementById("calculate-btn");
+  const clearAllButton = document.getElementById("clear-all");
+
+  //Select Form
+  const form = document.querySelector("form");
   
   if (button) {
     button.addEventListener("click", function (e) {
@@ -32,6 +36,20 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   } else {
     console.error("Button with ID 'calculate-btn' not found");
+  }
+  
+  // Add event listener for clearAllButton inside the DOMContentLoaded event
+  if (clearAllButton) {
+    clearAllButton.addEventListener("click", function() {
+      form.reset();
+      handleInput(mortgageAmountError, "");
+      handleInput(mortgageTermError, "");
+      handleInput(interestRateError, "");
+      secondResults.classList.add("hidden");
+      firstResults.classList.remove("hidden");
+    });
+  } else {
+    console.error("Button with ID 'clear-all' not found");
   }
 });
 
@@ -129,6 +147,5 @@ function handleInvalidInput(labelError, message) {
   labelError.classList.remove("hidden");
   labelError.textContent = message;
 }
-
 
 
