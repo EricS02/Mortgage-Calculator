@@ -24,10 +24,12 @@ document.addEventListener("DOMContentLoaded", function() {
   
   // Select the button
   const button = document.getElementById("calculate-btn");
+
   const clearAllButton = document.getElementById("clear-all");
 
   //Select Form
   const form = document.querySelector("form");
+
   
   if (button) {
     button.addEventListener("click", function (e) {
@@ -148,4 +150,12 @@ function handleInvalidInput(labelError, message) {
   labelError.textContent = message;
 }
 
+clearAllButton.addEventListener("click", function() {
+  form.reset()
+  handleInput(mortgageAmountError, "")
+  handleInput(mortgageTermError, "")
+  handleInput(interestRateError, "")
+  secondResults.classList.add("hidden")
+  firstResults.classList.remove("hidden")
+})
 
