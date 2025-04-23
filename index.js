@@ -2,6 +2,7 @@
 let mortgageAmount, mortgageTerm, interestRateInput, repayment, interestOnly, results;
 let mortgageAmountError, mortgageTermError, interestRateError;
 let secondResults, firstResults;
+let clearAllButton;
 
 // Wait for DOM to be fully loaded
 document.addEventListener("DOMContentLoaded", function() {
@@ -25,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // Select the button
   const button = document.getElementById("calculate-btn");
 
-  const clearAllButton = document.getElementById("clear-all");
+  const clearAllButton = document.querySelector(".clear-all");
 
   //Select Form
   const form = document.querySelector("form");
@@ -40,9 +41,10 @@ document.addEventListener("DOMContentLoaded", function() {
     console.error("Button with ID 'calculate-btn' not found");
   }
   
-  // Add event listener for clearAllButton inside the DOMContentLoaded event
+  // Make sure to keep this inside the DOMContentLoaded event
   if (clearAllButton) {
-    clearAllButton.addEventListener("click", function() {
+    clearAllButton.addEventListener("click", function(e) {
+      e.preventDefault(); // Important for <a> elements
       form.reset();
       handleInput(mortgageAmountError, "");
       handleInput(mortgageTermError, "");
@@ -51,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
       firstResults.classList.remove("hidden");
     });
   } else {
-    console.error("Button with ID 'clear-all' not found");
+    console.error("Element with class 'clear-all' not found");
   }
 });
 
@@ -149,13 +151,4 @@ function handleInvalidInput(labelError, message) {
   labelError.classList.remove("hidden");
   labelError.textContent = message;
 }
-
-clearAllButton.addEventListener("click", function() {
-  form.reset()
-  handleInput(mortgageAmountError, "")
-  handleInput(mortgageTermError, "")
-  handleInput(interestRateError, "")
-  secondResults.classList.add("hidden")
-  firstResults.classList.remove("hidden")
-})
 
