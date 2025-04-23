@@ -363,6 +363,7 @@ input {
   font-size: 24px;
   color: var(--White);
   margin-bottom: 16px;
+  margin-top: 10px;
 }
 
 .words {
@@ -393,6 +394,7 @@ input {
   border-radius: 10px;
   position: relative;
   overflow: hidden;
+  gap: 20px;
 }
 
 .results-box::before {
@@ -427,12 +429,121 @@ input {
 
 #monthly-repay-number {
   color: var(--Lime);
-  margin-top: 10px;
-  margin-bottom: 10px;
+  /* margin-top: 10px;
+  margin-bottom: 10px; */
 }
 
 #term-repay-title {
   font-size: 24px;
-  margin-top: 10px;
+  /* margin-top: 10px; */
 
+}
+@media only screen and (min-width:321px) and (max-width:768px){
+  body {
+    min-height: 50vh;
+    min-width: 50vw;
+    display: flex;
+    align-items: center;
+    flex-direction: center;
+    justify-content: center;
+    background-color: var(--Slate-100);
+    
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #ffffff;
+    margin: 100px 100px;
+    border-radius: 20px;
+    padding: 0;
+    overflow: hidden;
+    min-width: 320px;  
+    max-width: 100%;
+    width: calc(100% - 40px);  /* Make width responsive but account for margins */
+
+
+  }
+  
+  .right-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    background-color: var(--Slate-900);
+    color: #ffffff;
+    padding: 40px 40px ;
+    border-bottom-left-radius: 0px;
+
+  }
+  
+  .left-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 40px ;
+    flex: 1;
+  }
+
+  .calculate-btn {
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    align-items: center;
+    width: 50%;
+    background-color: var(--Lime);
+    color: var(--Slate-900);
+    border: none;
+    border-radius: 25px;
+    padding: 10px 15px;
+    font-weight: var(--font-bold);
+    cursor: pointer;
+    margin-top: 15px;
+    align-self: flex-start;
+  }
+  
+  .calc-icon {
+    margin-right: 10px;
+  }
+
+  .calc-image {
+    height: 220.07px;
+    width: 180.22px;
+    margin-top: 60px;
+  } 
+
+  .results-title {
+    font-size: 24px;
+    color: var(--White);
+    margin-bottom: 16px;
+    margin-top: -10px;
+  }
+}
+
+@media only screen and (max-width: 321px) {
+  body {
+    min-height: 50vh;
+    min-width: 50vw;
+    display: flex;
+    align-items: center;
+    flex-direction: center;
+    justify-content: center;
+    background-color: var(--Slate-100);
+    
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #ffffff;
+    margin: 50 100px;
+    border-radius: 20px;
+    padding: 0;
+    overflow: hidden;
+    min-width: 320px;  
+    max-width: 100%;
+    width: calc(100% - 40px);  /* Make width responsive but account for margins */
+  }
 }
